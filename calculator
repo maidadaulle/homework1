@@ -1,0 +1,80 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+double sum (float nr1,float nr2)
+{
+    double x=0;
+    return x=(double)nr1+nr2;
+}
+double difference (float nr1,float nr2)
+{
+    double x=0;
+    return x=nr1-nr2;
+}
+double multply (float nr1,float nr2)
+{
+    double x=0;
+    return x=(double)(nr1*nr2);
+}
+double division (float nr1,float nr2)
+{
+    double x=0;
+     while (nr2==0){
+        printf ("error,enter a number different from 0.");
+        scanf ("%f",&nr2);
+       }
+       x=(double)nr1/nr2;
+       return x;
+}
+double power (float nr1, float nr2)
+{
+    double x=0;
+    printf ("Enter the power:\n");
+        scanf ("%f",&nr2);
+        x=1;
+        for (int i=1;i<=nr2;i++)
+            x=(double)x*nr1;
+    return x;
+}
+double squareroot (float nr1)
+{
+    double x=0;
+    x=sqrt(nr1*1.00);
+    return x;
+}
+int main()
+{
+    char opp;
+    float nr1,nr2=0,result;
+    printf ("Enter the first number:");
+    scanf ("%f",&nr1);
+    printf ("Enter the operator:+,-,*,/,^,s(sqrt).\n ");
+    scanf ("%s",&opp);
+    if (opp=='^'){
+        result=power(nr1,nr2);
+    }
+    else if (opp=='s')
+        result=squareroot(nr1);
+    else {
+    printf ("Enter the second number:");
+    scanf ("%f",&nr2);
+    if (opp=='+')
+        result=sum(nr1,nr2);
+   else if(opp=='-')
+    {
+        result=difference(nr1,nr2);
+    }
+    else if(opp=='*')
+    {
+        result=power(nr1,nr2);
+    }
+    else if(opp=='/')
+    {
+        result=division(nr1,nr2);
+    }
+
+    }
+    printf ("%.2f",result);
+    return 0;
+}
